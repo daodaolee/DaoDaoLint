@@ -4,7 +4,8 @@ const path = require('path');
 // 读
 function readFile(dir) {
   return new Promise((resolve, reject) => {
-    fs.readFile(path.resolve(dir), 'utf-8', (err, data) => {
+    // @ts-ignore
+    fs.readFileSync(path.resolve(dir), 'utf-8', (err, data) => {
       if (err) {
         reject(console.log(err))
       } else {
@@ -17,7 +18,8 @@ function readFile(dir) {
 // 写
 function writeFile(dir, text) {
   return new Promise((resolve, reject) => {
-    fs.writeFile(path.resolve(dir), text, (err, data) => {
+    // @ts-ignore
+    fs.writeFileSync(path.resolve(dir), text, (err, data) => {
       if (err) {
         reject(console.log(err))
       } else {
